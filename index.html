@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/distanceController.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrbAg-YJZV5Jpgji7A023rvOH_I234scA">
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <meta charset="UTF-8">
+    <title>Distance Calculator</title>
+</head>
+
+<body ng-app="distance" ng-controller="distanceController" ng-cloak>
+    <div class="container">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Distance Calculator</h1> </div>
+                <div class="panel-body">
+                    <form name="distanceForm" ng-submit="distanceForm.$valid && calcDistance(origin,destination)">
+                        <div class="form-group">
+                            <input type="text" name="origin" required class="form-control input-lg" ng-minlength="1" placeholder="Origin" ng-model="origin">
+                            <input type="text" name="destination" required class="form-control input-lg" ng-minlength="1" placeholder="Destination" ng-model="destination"> </div>
+                        <button type="submit" class="btn btn-lg btn-primary">Calculate Distance</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row"> {{distanceText}} </div>
+    </div>
+</body>
+
+</html>
